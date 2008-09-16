@@ -22,7 +22,7 @@ LuaDoc egy dokumentációs eszköz Lua forráskódokhoz.
 
 %prep
 %setup -q -n luadoc-%{version}
-sed -i -r "s|(LUA_INTERPRETER.*bin/lua)|\151|" config
+%{__sed} -i -e 's|LUA_INTERPRETER.*bin/lua|&51|' config
 
 %build
 
@@ -30,7 +30,7 @@ sed -i -r "s|(LUA_INTERPRETER.*bin/lua)|\151|" config
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	PREFIX=$RPM_BUILD_ROOT%{_prefix}
-sed -i "1 s|lua|lua51|" $RPM_BUILD_ROOT%{_bindir}/luadoc
+%{__sed} -i -e '1s,#!.*bin/lua,#!%{_bindir}/lua51|' $RPM_BUILD_ROOT%{_bindir}/luadoc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
