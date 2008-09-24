@@ -27,7 +27,6 @@ LuaDoc jest narzędziem służącym do generowania dokumentacji na podstawie kod
 
 %prep
 %setup -q -n luadoc-%{version}
-%{__sed} -i -e 's|LUA_INTERPRETER.*bin/lua|&51|' config
 
 %build
 
