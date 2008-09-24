@@ -27,6 +27,7 @@ LuaDoc jest narzędziem służącym do generowania dokumentacji na podstawie kod
 
 %prep
 %setup -q -n luadoc-%{version}
+%{__sed} -i -e '1s,lua,lua51,' src/luadoc.lua.in
 
 %build
 
@@ -34,7 +35,6 @@ LuaDoc jest narzędziem służącym do generowania dokumentacji na podstawie kod
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	PREFIX=$RPM_BUILD_ROOT%{_prefix}
-%{__sed} -i -e '1s,#!.*bin/lua,#!%{_bindir}/lua51,' $RPM_BUILD_ROOT%{_bindir}/luadoc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
