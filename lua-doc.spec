@@ -30,7 +30,7 @@ LuaDoc egy dokumentációs eszköz Lua forráskódokhoz.
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	PREFIX=$RPM_BUILD_ROOT%{_prefix}
-%{__sed} -i -e '1s,#!.*bin/lua,#!%{_bindir}/lua51|' $RPM_BUILD_ROOT%{_bindir}/luadoc
+%{__sed} -i -e '1s,#!.*bin/lua,#!%{_bindir}/lua51,' $RPM_BUILD_ROOT%{_bindir}/luadoc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
