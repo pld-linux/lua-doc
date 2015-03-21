@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	LuaDoc egy dokumentációs eszköz Lua forráskódokhoz
 Summary(pl.UTF-8):	Narzędzie do dokumentowania kodu źródłowego Lua
 Name:		lua-doc
 Version:	3.0.1
-Release:	2
+Release:	3
 License:	BSD-like
 Group:		Development/Languages
 Source0:	http://luaforge.net/frs/download.php/3185/luadoc-%{version}.tar.gz
