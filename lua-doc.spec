@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	LuaDoc egy dokumentációs eszköz Lua forráskódokhoz
 Summary(pl.UTF-8):	Narzędzie do dokumentowania kodu źródłowego Lua
 Name:		lua-doc
 Version:	3.0.1
-Release:	3
+Release:	4
 License:	BSD-like
 Group:		Development/Languages
 Source0:	http://luaforge.net/frs/download.php/3185/luadoc-%{version}.tar.gz
@@ -12,7 +12,7 @@ URL:		http://luaforge.net/projects/luadoc/
 BuildRequires:	sed >= 4.0
 Requires:	lua-filesystem
 Requires:	lua-logging
-Requires:	lua51
+Requires:	/usr/bin/lua
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -22,12 +22,13 @@ LuaDoc is a documentation tool for Lua source code.
 LuaDoc egy dokumentációs eszköz Lua forráskódokhoz.
 
 %description -l pl.UTF-8
-LuaDoc jest narzędziem służącym do generowania dokumentacji na podstawie kodu
-źródłowego Lua.
+LuaDoc jest narzędziem służącym do generowania dokumentacji
+na podstawie kodu źródłowego Lua.
 
 %prep
 %setup -q -n luadoc-%{version}
-%{__sed} -i -e '1s,lua,lua51,' src/luadoc.lua.in
+
+%{__sed} -E -i -e '1s,#!\s*/usr/bin/env\s+lua(\s|$),#!%{__lua}\\1,' src/luadoc.lua.in
 
 %build
 
