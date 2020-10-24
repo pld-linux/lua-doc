@@ -10,6 +10,7 @@ Source0:	http://luaforge.net/frs/download.php/3185/luadoc-%{version}.tar.gz
 # Source0-md5:	ec3a0c0b9413e401a2d466cc0930d505
 URL:		http://luaforge.net/projects/luadoc/
 BuildRequires:	sed >= 4.0
+BuildRequires:	/usr/bin/lua
 Requires:	lua-filesystem
 Requires:	lua-logging
 Requires:	/usr/bin/lua
